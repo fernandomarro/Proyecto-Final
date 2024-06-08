@@ -1,0 +1,41 @@
+
+
+<div class="container">
+    <h2>Crear Vuelo</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="aerolinea">Aerolinea</label>
+        <select class="form-control" id="aerolinea" [(ngModel)]="vuelo.aerolineaId" name="aerolineaId" required>
+          <option *ngFor="let aerolinea of aerolineas" [value]="aerolinea.id">{{ aerolinea.nombre }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="aeropuertoSalida">Aeropuerto de Salida</label>
+        <select class="form-control" id="aeropuertoSalida" [(ngModel)]="vuelo.aeropuertoSalidaId" name="aeropuertoSalidaId" required>
+          <option *ngFor="let aeropuerto of aeropuertos" [value]="aeropuerto.id">{{ aeropuerto.nombre }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="aeropuertoLlegada">Aeropuerto de Llegada</label>
+        <select class="form-control" id="aeropuertoLlegada" [(ngModel)]="vuelo.aeropuertoLlegadaId" name="aeropuertoLlegadaId" required>
+          <option *ngFor="let aeropuerto of aeropuertos" [value]="aeropuerto.id">{{ aeropuerto.nombre }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="claseVuelo">Clase de Vuelo</label>
+        <select class="form-control" id="claseVuelo" [(ngModel)]="vuelo.claseVueloId" name="claseVueloId" required>
+          <option *ngFor="let claseVuelo of clasesVuelo" [value]="claseVuelo.id">{{ claseVuelo.nombre }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="horaSalida">Hora de Salida</label>
+        <input type="datetime-local" class="form-control" id="horaSalida" [(ngModel)]="vuelo.horaSalida" name="horaSalida" required>
+      </div>
+      <div class="mb-3">
+        <label for="horaLlegada">Hora de Llegada</label>
+        <input type="datetime-local" class="form-control" id="horaLlegada" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear Vuelo</button>
+    </form>
+  </div>
+  

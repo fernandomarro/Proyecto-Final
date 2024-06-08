@@ -1,0 +1,55 @@
+<form (ngSubmit)="onSubmit()" class="container mt-4">
+  <div class="mb-3">
+    <label for="nombre_completo" class="form-label">Nombre completo:</label>
+    <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" [(ngModel)]="usuario.nombre_completo" required>
+  </div>
+  <div class="mb-3">
+    <label for="pasaporte" class="form-label">Pasaporte:</label>
+    <input type="number" class="form-control" id="pasaporte" name="pasaporte" [(ngModel)]="usuario.pasaporte" required>
+  </div>
+  <div class="mb-3">
+    <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
+    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="usuario.fecha_nacimiento" required>
+  </div>
+  <div class="mb-3">
+    <label for="nacionalidad" class="form-label">Nacionalidad:</label>
+    <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" [(ngModel)]="usuario.nacionalidad" required>
+  </div>
+  <div class="mb-3">
+    <label for="direccion" class="form-label">Direccion:</label>
+    <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="usuario.direccion" required>
+  </div>
+  <div class="mb-3">
+    <label for="correo" class="form-label">Correo electrónico:</label>
+    <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="usuario.correo" required>
+  </div>
+  <!-- Agrega más campos según sea necesario -->
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña:</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="usuario.password" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="codigo_pais" class="form-label">Codigo pais:</label>
+    <input type="text" class="form-control" id="codigo_pais" name="codigo_pais" [(ngModel)]="usuario.codigo_pais" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="telefono" class="form-label">Telefono:</label>
+    <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="telefono_emerg" class="form-label">Telefono emergencia:</label>
+    <input type="tel" class="form-control" id="telefono_emerg" name="telefono_emerg" [(ngModel)]="usuario.telefono_emerg" required>
+  </div>
+  
+  <div class="mb-3">
+    <label for="rolId" class="form-label">Rol:</label>
+    <select class="form-select" id="rolId" name="rolId" [(ngModel)]="usuario.rolId" required>
+    <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.nombre }}</option>
+  </select>
+</div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  

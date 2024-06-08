@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <h2>Seleccionar Vuelo</h2>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Aerolínea</th>
+          <th>Aeropuerto de Salida</th>
+          <th>Aeropuerto de Llegada</th>
+          <th>Hora de Salida</th>
+          <th>Hora de Llegada</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vuelo of vuelos" (click)="seleccionarVuelo(vuelo)">
+          <td>{{ vuelo.id }}</td>
+          <td>{{ vuelo.aerolinea.nombre }}</td>
+          <td>{{ vuelo.aeropuertoSalida.nombre }}</td>
+          <td>{{ vuelo.aeropuertoLlegada.nombre }}</td>
+          <td>{{ vuelo.horaSalida }}</td>
+          <td>{{ vuelo.horaLlegada }}</td>
+          <td><button class="btn btn-primary">Seleccionar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="selectedVuelo" class="mt-5">
+      <h2>Detalles del Vuelo</h2>
+      <p><strong>Aerolínea:</strong> {{ selectedVuelo.aerolinea.nombre }}</p>
+      <p><strong>Aeropuerto de Salida:</strong> {{ selectedVuelo.aeropuertoSalida.nombre }}</p>
+      <p><strong>Aeropuerto de Llegada:</strong> {{ selectedVuelo.aeropuertoLlegada.nombre }}</p>
+      <p><strong>Hora de Salida:</strong> {{ selectedVuelo.horaSalida }}</p>
+      <p><strong>Hora de Llegada:</strong> {{ selectedVuelo.horaLlegada }}</p>
+      <p><strong>Clase de Vuelo:</strong> {{ selectedVuelo.claseVuelo.nombre }}</p>
+  
+      <h2 class="mt-5">Crear Pasajero</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="usuarioId">Seleccionar Usuario:</label>
+          <select id="usuarioId" class="form-control" [(ngModel)]="selectedUsuarioId" name="usuarioId" required>
+            <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{ usuario.nombre_completo }}</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="asiento">Asiento:</label>
+          <input type="text" id="asiento" class="form-control" [(ngModel)]="pasajero.asiento" name="asiento" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="cantidadMaletas">Cantidad de Maletas:</label>
+          <input type="number" id="cantidadMaletas" class="form-control" [(ngModel)]="pasajero.cantidadMaletas" name="cantidadMaletas" required>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Crear Pasajero</button>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+<!-- src/app/buscar-pasajero/buscar-pasajero.component.html -->
+<div class="container mt-5">
+    <h2>Buscar Pasajero</h2>
+    <form (ngSubmit)="buscarPasajero()">
+      <div class="form-group">
+        <label for="pasajeroId">ID del Pasajero</label>
+        <input type="number" class="form-control" id="pasajeroId" [(ngModel)]="pasajeroId" name="pasajeroId" required>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Buscar</button>
+    </form>
+    <div *ngIf="mensaje" class="alert alert-info mt-3">
+      {{ mensaje }}
+    </div>
+  </div>
+  
